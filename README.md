@@ -1,7 +1,6 @@
-Example
+SignalListSplitter
 ===========
-
-What does this block do?
+Takes a list of signals, and notifies each signal in its own list with length 1.
 
 Properties
 --------------
@@ -21,4 +20,4 @@ Any list of signals.
 
 Output
 ---------
-Same list of signals as input.
+One list of one signal, unmodified, per signal in input list.
