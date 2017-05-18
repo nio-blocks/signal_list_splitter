@@ -20,4 +20,4 @@ Any list of signals.
 
 Output
 ---------
-One list of one signal, unmodified, per signal in input list.
+One list of one unmodified signal per signal in input list.
