@@ -1,0 +1,7 @@
+{
+  "nio/SignalListSplitter": {
+    "Reference": "github.com/nio-blocks/signal_list_splitter.git@v1.0.0",
+    "Version": "1.0.0",
+    "Language": "Python"
+  }
+}
