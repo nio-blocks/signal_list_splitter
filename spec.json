@@ -1,14 +1,15 @@
 {
-  "nio/SignalListSplitter": {
-    "Version": "1.0.0",
-    "Description": "Takes a list of signals, and notifies each signal in its own list with length 1.",
-    "Output": "One list of one unmodified signal per signal in input list.",
-    "Input": "Any list of signals.",
-    "Category": "SignalModifier",
-    "Properties": {},
-    "Commands": {},
-    "Dependencies": [
-      "None"
-    ]
-  }
+    "nio/SignalListSplitter": {
+        "Input": {
+            "Description": "Any list of signals."
+        },
+        "Category": "SignalModifier",
+        "Properties": {},
+        "Description": "Takes a list of signals, and notifies each signal in its own list with length 1.",
+        "Version": "1.0.0",
+        "Commands": {},
+        "Output": {
+            "Description": "One list of one unmodified signal per signal in input list."
+        }
+    }
 }
