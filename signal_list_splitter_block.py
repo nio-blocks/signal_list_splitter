@@ -8,4 +8,4 @@ class SignalListSplitter(Block):
 
     def process_signals(self, signals):
         for signal in signals:
-            self.notify_signals(signal)
+            self.notify_signals([signal])
