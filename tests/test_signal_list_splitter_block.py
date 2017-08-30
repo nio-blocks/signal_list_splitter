@@ -6,9 +6,6 @@ from ..signal_list_splitter_block import SignalListSplitter
 
 class TestProcessSignalList(NIOBlockTestCase):
 
-    input_signals = [Signal({"hello": "n.io"}),
-                     Signal({"hello": "n.io"}),
-                     Signal({"hello": "n.io"})]
 
     def signals_notified(self, block, signals, output_id):
         """override function so that last_notified is list of lists of signals
@@ -18,17 +15,38 @@ class TestProcessSignalList(NIOBlockTestCase):
 
     def test_process_signal_list(self):
         """List of signals is split into lists of single signals"""
+        input_signals = [Signal({"hello": "n.io"}),
+                         Signal({"hello": "n.io"}),
+                         Signal({"hello": "n.io"})]
         blk = SignalListSplitter()
         self.configure_block(blk, {})
         blk.start()
         # one list of signals is processed
-        blk.process_signals(self.input_signals)
+        blk.process_signals(input_signals)
         blk.stop()
-        self.assert_num_signals_notified(len(self.input_signals))
+        self.assert_num_signals_notified(3)
         # and one list of one signal has been notified for each signal
-        self.assertEqual(len(self.last_notified[DEFAULT_TERMINAL]),
-                         len(self.input_signals))
+        self.assertEqual(len(self.last_notified[DEFAULT_TERMINAL]), 3)
+        for signal_list in self.last_notified[DEFAULT_TERMINAL]:
+            self.assertEqual(len(signal_list), 1)
+            self.assertEqual(signal_list[0].to_dict(), {
+                "hello": "n.io",
+            })
 
-class TestProcessSignalListOfOne(TestProcessSignalList):
-
-    input_signals = [Signal({"hello": "n.io"})]
+    def test_process_signal_list_of_one(self):
+        """List of signals is split into lists of single signals"""
+        input_signals = [Signal({"hello": "n.io"})]
+        blk = SignalListSplitter()
+        self.configure_block(blk, {})
+        blk.start()
+        # one list of signals is processed
+        blk.process_signals(input_signals)
+        blk.stop()
+        self.assert_num_signals_notified(1)
+        # and one list of one signal has been notified for each signal
+        self.assertEqual(len(self.last_notified[DEFAULT_TERMINAL]), 1)
+        for signal_list in self.last_notified[DEFAULT_TERMINAL]:
+            self.assertEqual(len(signal_list), 1)
+            self.assertEqual(signal_list[0].to_dict(), {
+                "hello": "n.io",
+            })
