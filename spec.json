@@ -2,6 +2,10 @@
   "nio/SignalListSplitter": {
     "version": "0.1.0",
     "description": "Takes a list of signals, and notifies each signal in its own list with length 1.",
+    "categories": [
+      "Signal Flow",
+      "Signal Inspection"
+    ],
     "properties": {},
     "inputs": {
       "default": {
