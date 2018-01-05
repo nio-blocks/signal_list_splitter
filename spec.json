@@ -1,7 +1,7 @@
 {
   "nio/SignalListSplitter": {
     "version": "0.1.0",
-    "description": "Takes a list of signals, and notifies each signal in its own list with length 1.",
+    "description": "The SignalListSplitter is useful when the incoming signal is a list of signals. It will split the list into individual signals and emit each one as its own signal as a list of length 1.",
     "categories": [
       "Signal Flow",
       "Signal Inspection"
@@ -14,7 +14,7 @@
     },
     "outputs": {
       "default": {
-        "description": "Same input signals but split each signal into its own list."
+        "description": "Same as the incoming signal list but split into individual signals."
       }
     },
     "commands": {}
