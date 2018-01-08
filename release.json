@@ -2,6 +2,6 @@
   "nio/SignalListSplitter": {
     "language": "Python",
     "url": "git://github.com/nio-blocks/signal_list_splitter.git",
-    "version": "0.1.0"
+    "version": "0.1.1"
   }
 }
